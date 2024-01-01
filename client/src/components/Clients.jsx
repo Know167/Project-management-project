@@ -1,0 +1,39 @@
+import { useQuery } from "@apollo/client";
+
+import {GET_CLIENTS} from "../queries/ClientQueries";
+import ClientRow from "./ClientRow";
+import Spinner from "./Spinner";
+import AddClientModal from "./AddClientModal";
+
+const Clients = () => {
+    const { loading, error, data } = useQuery(GET_CLIENTS);
+
+    if (loading) return <Spinner />;
+    if (error) return <p>{JSON.stringify(error)}</p>;
+
+    return (
+        <>
+            <AddClientModal/>
+            {!loading && !error && (
+                <table className="table table-dark table-hover mt-3">
+                    <caption>list of clients</caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody className="table-group-divider">
+                        {data.clients.map((rowData) => (
+                            <ClientRow key={rowData.id} rowData={rowData} />
+                        ))}
+                    </tbody>
+                </table>
+            )}
+        </>
+    );
+};
+
+export default Clients;
