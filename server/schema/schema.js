@@ -58,7 +58,7 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(ProjectType),
             resolve(parent, args) {
                 return Project.find();
-            },
+            },  
         },
         project: {
             type: ProjectType,
@@ -141,16 +141,7 @@ const mutation = new GraphQLObjectType({
                 id: { type: GraphQLNonNull(GraphQLID) },
                 name: { type: GraphQLString },
                 description: { type: GraphQLString },
-                status: {
-                    type: new GraphQLEnumType({
-                        name: "ProjectStatusUpdate",
-                        values: {
-                            new: { value: "Not Started" },
-                            progress: { value: "In Progress" },
-                            completed: { value: "Completed" },
-                        },
-                    }),
-                },
+                status: { type: GraphQLString },
             },
             resolve(parents, args) {
                 return Project.findByIdAndUpdate(

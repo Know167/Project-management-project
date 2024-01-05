@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import Clients from "./components/Clients";
 import Projects from "./components/Projects";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./components/ErrorPage";
+import ProjectInfo from "./components/ProjectInfo";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
         path: "projects",
         element: <Projects />,
     },
+    {
+        path: "projects/:id",
+        element:<ProjectInfo/>,
+    },
+    {
+        path: '*',
+        element:<ErrorPage/>,
+    }
 ]);
 
 const cache = new InMemoryCache({
