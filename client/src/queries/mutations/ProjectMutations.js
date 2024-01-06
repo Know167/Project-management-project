@@ -23,12 +23,17 @@ const ADD_PROJECT = gql`
 `;
 
 const UPDATE_PROJECT = gql`
-    mutation updateProject($name: String!, $status: String!, $client: ID!) {
-        updateProject(name: $name, status: $status, client: $client) {
+    mutation updateProject(
+        $id: ID!
+        $name: String!
+        $status: String!
+        $description: String!
+    ) {
+        updateProject(id:$id, name: $name, status: $status, description: $description) {
             id
             name
             status
-            client
+            description
         }
     }
 `;
