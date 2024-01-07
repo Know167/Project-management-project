@@ -1,9 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
-import { GET_PROJECT } from "../queries/ProjectQueries";
+import { GET_PROJECT, GET_PROJECTS } from "../queries/ProjectQueries";
+import { REMOVE_PROJECT } from "../queries/mutations/ProjectMutations";
 import Spinner from "./Spinner";
 import EditProject from "./EditProject";
 
@@ -11,13 +12,23 @@ const ProjectInfo = () => {
     const navigate = useNavigate();
     const [edit, setEdit] = useState(false);
     const { id } = useParams();
+    const [removeProject] = useMutation(REMOVE_PROJECT, {
+        variables: { id },
+        refetchQueries: [{ query: GET_PROJECTS }],
+    });
+
     const { loading, error, data } = useQuery(GET_PROJECT, {
         variables: { id },
     });
 
     const onCancel = () => {
         setEdit(false);
-}
+    };
+
+    const onDelete = () => {
+        removeProject();
+        navigate("/projects");
+    };
 
     if (loading) <Spinner />;
     if (error) <p>Something Somewhere Went Sideways</p>;
@@ -70,14 +81,22 @@ const ProjectInfo = () => {
                                 </li>
                             </ul>
                         </div>
-                        <button className="btn btn-warning ms-auto me-2 mb-2" onClick={() => setEdit(true)}>
-                            Edit
-                        </button>
+                        <div className="d-flex justify-content-end ms-auto">
+                            <button
+                                className="btn btn-warning ms-auto me-2 mb-2"
+                                onClick={() => setEdit(true)}>
+                                Edit
+                            </button>
+                            <button
+                                className="btn btn-danger ms-auto me-2 mb-2"
+                                onClick={() => onDelete()}>
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
-                
             )}
-            {edit&&<EditProject data={data} onCancel={onCancel}/>}
+            {edit && <EditProject data={data} onCancel={onCancel} />}
         </>
     );
 };

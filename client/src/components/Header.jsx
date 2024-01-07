@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import logo from './assets/1.png'
 
 const Header = () => {
@@ -22,13 +20,15 @@ const Header = () => {
               <li className="nav-item">
                   <a
                       href="/clients"
-                      className="nav-link fw-medium text-dark"
+                      className="btn btn-lg border fw-medium text-dark me-2"
                       aria-current="page">
                       Clients
                   </a>
               </li>
               <li className="nav-item">
-                  <a href="/projects" className="nav-link fw-medium text-dark">
+                  <a
+                      href="/projects"
+                      className="btn btn-lg border nav-link fw-medium text-dark">
                       Projects
                   </a>
               </li>

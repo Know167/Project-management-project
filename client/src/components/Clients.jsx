@@ -15,9 +15,9 @@ const Clients = () => {
         <>
             <AddClientModal/>
             {!loading && !error && (
-                <table className="table table-dark table-hover mt-3">
+                <table className="table table-hover mt-3 shadow">
                     <caption>list of clients</caption>
-                    <thead>
+                    <thead className="table-head">
                         <tr>
                             <th>Name</th>
                             <th>Email</th>

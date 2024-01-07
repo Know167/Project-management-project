@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 
 import { GET_PROJECTS } from "../queries/ProjectQueries";
 import Spinner from "./Spinner";
-import { useNavigate } from "react-router-dom";
+import AddProjectModal from "./AddProjectModal";
 
 const Projects = () => {
     const { loading, error, data } = useQuery(GET_PROJECTS);
@@ -11,18 +11,19 @@ const Projects = () => {
     if (!data || !data.projects) {
         <p>No Projects:(</p>;
     }
-    const navigate = useNavigate();
     return (
         <>
+            {" "}
+            <AddProjectModal />
             {!loading && !error && (
-                <div className="row row-cols-1 row-cols-md-2">
+                <div className="row row-cols-1 row-cols-md-1">
                     {data.projects.map((project) => {
                         return (
                             <div
-                                className="card d-flex flex-row"
+                                className="card d-flex flex-row shadow-sm m-1"
                                 key={project.id}>
                                 <div className="card-body">
-                                    <h5 className="card-title fw-bold text-danger">
+                                    <h5 className="card-title fw-bold text-info-emphasis">
                                         {project.name}
                                     </h5>
                                     <div className="text-secondary">
@@ -38,7 +39,10 @@ const Projects = () => {
                                         </i>
                                     </div>
                                 </div>
-                                <a className="btn btn-primary my-auto" href={`/projects/${project.id}`}>
+                                <a
+                                    className="btn btn-lg text-primary-emphasis my-auto border border-2 border-tertiary shadow-sm"
+                                    style={{ backgroundColor: "#c9ffff" }}
+                                    href={`/projects/${project.id}`}>
                                     View
                                 </a>
                             </div>

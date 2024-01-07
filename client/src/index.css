@@ -27,24 +27,38 @@ code {
 
 .btn-primary,
 .bg-primary {
-  background-color:#7776BC !important;
+  background-color:#F6F7EB !important;
   border: none;
 }
 
 .btn-primary:hover {
-  background-color: #7776BC;
+  background-color: #F6F7EB;
   opacity: 0.9;
 }
+.ab{
+  background-color: #c9ffff;
+}
 
-.btn-secondary {
-  background-color: #FF674D;
+.btn-secondary {  
+  background-color: #fffb00;
 }
 
 .btn-secondary:hover {
-  background-color: #FF674D;
+  background-color: #FFFC31;
   opacity: 0.9;
 }
-
+.btn-blue{
+  background-color: #0088ff;
+}
+.btn-blue:hover{
+  background-color: #35a0fd;
+}
+.btn-orange{
+  background-color: #ffbf00;
+}
+.btn-orange:hover{
+  background-color: #fcd915;
+}
 .icon {
   margin-right: 5px;
 }
