@@ -23,12 +23,13 @@ const AddClientModal = () => {
         },
     });
 
-    const OnSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-        addClient(name, email, number);
-        setName("");
-        setEmail("");
-        setNumber("");
+        addClient(name, email, number).then(() => {
+            setName("");
+            setEmail("");
+            setNumber("");
+        });
     };
     const onChangeName = (e) => {
         e.preventDefault();
@@ -52,9 +53,9 @@ const AddClientModal = () => {
                     style={{ backgroundColor: "#E3E1DA" }}
                     data-bs-toggle="modal"
                     data-bs-target="#addClientModal">
-                    <FaPlus/> Add Client
+                    <FaPlus /> Add Client
                 </button>
-                <form onSubmit={OnSubmit}>
+                <form>
                     <div
                         className="modal fade"
                         id="addClientModal"
@@ -129,7 +130,8 @@ const AddClientModal = () => {
                                     <button
                                         type="submit"
                                         className="btn btn-blue"
-                                        data-bs-dismiss="modal">
+                                        data-bs-dismiss="modal"
+                                        onClick={onSubmit}>
                                         Submit
                                     </button>
                                 </div>
