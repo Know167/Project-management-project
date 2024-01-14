@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import ProjectInfo from "./components/ProjectInfo";
+import GanttChart from "./components/GanttChart";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -22,12 +23,16 @@ const router = createBrowserRouter([
     },
     {
         path: "projects/:id",
-        element:<ProjectInfo/>,
+        element: <ProjectInfo />,
     },
     {
-        path: '*',
-        element:<ErrorPage/>,
-    }
+        path: "projects/:id/timeline",
+        element: <GanttChart />,
+    },
+    {
+        path: "*",
+        element: <ErrorPage />,
+    },
 ]);
 
 const cache = new InMemoryCache({
@@ -58,7 +63,7 @@ function App() {
     return (
         <>
             <ApolloProvider client={client}>
-                <div className="container">
+                <div>
                     <Header />
                     <RouterProvider router={router} />
                 </div>

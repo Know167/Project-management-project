@@ -37,7 +37,7 @@ const ProjectInfo = () => {
             {!loading && !error && data && (
                 <div className="container mt-4">
                     <button
-                        className="btn btn-primary"
+                        className="btn btn-blue"
                         onClick={() => navigate("/projects")}>
                         <AiOutlineArrowLeft className="me-2" /> Go to Projects
                     </button>
@@ -45,9 +45,22 @@ const ProjectInfo = () => {
                         className="card border-primary mt-3"
                         style={{ backgroundColor: "#E8F0FF" }}>
                         <div className="card-body">
-                            <h2 className="card-title text-primary">
-                                {data.project.name}
-                            </h2>
+                            <div className="d-flex flex-row justify-content-between">
+                                <h2 className="card-title text-primary">
+                                    {data.project.name}
+                                </h2>
+                                <button
+                                    className="btn fs-6 fw-semibold shadow-sm"
+                                    style={{
+                                        backgroundColor: "#393E41",
+                                        color: "white",
+                                        border: "2px solid gray",
+                                    }}
+                                    onClick={() => navigate(`/projects/${id}/timeline`)}
+                                >
+                                    View Timeline
+                                </button>
+                            </div>
                             <p className="card-text">
                                 <strong>Status:</strong>{" "}
                                 <span
