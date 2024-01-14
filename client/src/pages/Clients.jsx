@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
 
 import {GET_CLIENTS} from "../queries/ClientQueries";
-import ClientRow from "./ClientRow";
-import Spinner from "./Spinner";
-import AddClientModal from "./AddClientModal";
+import ClientRow from "../components/ClientRow";
+import Spinner from "../components/Spinner";
+import AddClientModal from "../components/AddClientModal";
 
 const Clients = () => {
     const { loading, error, data } = useQuery(GET_CLIENTS);

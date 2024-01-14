@@ -1,8 +1,8 @@
 import { useQuery } from "@apollo/client";
 
 import { GET_PROJECTS } from "../queries/ProjectQueries";
-import Spinner from "./Spinner";
-import AddProjectModal from "./AddProjectModal";
+import Spinner from "../components/Spinner";
+import AddProjectModal from "../components/AddProjectModal";
 
 const Projects = () => {
     const { loading, error, data } = useQuery(GET_PROJECTS);

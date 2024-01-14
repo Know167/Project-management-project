@@ -1,12 +1,12 @@
 import "./App.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Header from "./components/Header";
-import Home from "./components/Home";
-import Clients from "./components/Clients";
-import Projects from "./components/Projects";
+import Home from "./pages/Home";
+import Clients from "./pages/Clients";
+import Projects from "./pages/Projects";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./components/ErrorPage";
-import ProjectInfo from "./components/ProjectInfo";
+import ErrorPage from "./pages/ErrorPage";
+import ProjectInfo from "./pages/ProjectInfo";
 import GanttChart from "./components/GanttChart";
 const router = createBrowserRouter([
     {

@@ -5,8 +5,8 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import { GET_PROJECT, GET_PROJECTS } from "../queries/ProjectQueries";
 import { REMOVE_PROJECT } from "../queries/mutations/ProjectMutations";
-import Spinner from "./Spinner";
-import EditProject from "./EditProject";
+import Spinner from "../components/Spinner";
+import EditProject from "../components/EditProject";
 
 const ProjectInfo = () => {
     const navigate = useNavigate();
