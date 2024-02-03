@@ -5,7 +5,9 @@ const {
     GraphQLList,
     GraphQLSchema,
     GraphQLNonNull,
-    GraphQLEnumType,
+    GraphQLInt,
+    GraphQLBoolean,
+    GraphQLInputObjectType,
 } = require("graphql");
 
 const Project = require("../models/Project");
@@ -22,6 +24,64 @@ const ClientType = new GraphQLObjectType({
     }),
 });
 
+// Timeline
+const DateInputType = new GraphQLInputObjectType({
+    name: "DateInput",
+    fields: () => ({
+        year: { type: GraphQLInt },
+        month: { type: GraphQLInt },
+        date: { type: GraphQLInt },
+    }),
+});
+const TaskInputListType = new GraphQLInputObjectType({
+    name: "TaskInputList",
+    fields: () => ({
+        id: { type: GraphQLID },
+        name: { type: GraphQLString },
+        progress: { type: GraphQLInt },
+        hideChildren: { type: GraphQLBoolean },
+        type: { type: GraphQLString },
+        start: { type: DateInputType },
+        end: { type: DateInputType },
+    }),
+});
+const TaskInputType = new GraphQLInputObjectType({
+    name: "TaskInput",
+    fields: () => ({
+        tasks: { type: new GraphQLList(TaskInputListType) },
+    }),
+});
+
+const DateType = new GraphQLObjectType({
+    name: "Date",
+    fields: () => ({
+        year: { type: GraphQLInt },
+        month: { type: GraphQLInt },
+        date: { type: GraphQLInt },
+    }),
+});
+
+const TaskListType = new GraphQLObjectType({
+    name: "TaskList",
+    fields: () => ({
+        id: { type: GraphQLID },
+        name: { type: GraphQLString },
+        progress: { type: GraphQLInt },
+        hideChildren: { type: GraphQLBoolean },
+        type: { type: GraphQLString },
+        start: { type: DateType },
+        end: { type: DateType },
+    }),
+});
+const TaskType = new GraphQLObjectType({
+    name: "TaskType",
+    fields: () => ({
+        tasks: { type: new GraphQLList(TaskListType) },
+    }),
+});
+
+// Timeline
+
 const ProjectType = new GraphQLObjectType({
     name: "Project",
     fields: () => ({
@@ -34,6 +94,9 @@ const ProjectType = new GraphQLObjectType({
             resolve(parent, args) {
                 return Client.findById(parent.clientId);
             },
+        },
+        timeline: {
+            type: TaskType,
         },
     }),
 });
@@ -106,6 +169,9 @@ const mutation = new GraphQLObjectType({
                 description: { type: GraphQLNonNull(GraphQLString) },
                 clientId: { type: GraphQLNonNull(GraphQLID) },
                 status: { type: GraphQLNonNull(GraphQLString) },
+                timeline: {
+                    type: TaskInputType,
+                },
             },
             resolve(parents, args) {
                 const project = new Project({
@@ -113,6 +179,7 @@ const mutation = new GraphQLObjectType({
                     description: args.description,
                     status: args.status,
                     clientId: args.clientId,
+                    timeline: args.timeline,
                 });
 
                 return project.save();
