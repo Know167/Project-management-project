@@ -23,26 +23,43 @@ const ClientType = new GraphQLObjectType({
         phone: { type: GraphQLString },
     }),
 });
-
-// Timeline
+const currentDate = new Date();
+// Timeline Input type
 const DateInputType = new GraphQLInputObjectType({
     name: "DateInput",
     fields: () => ({
-        year: { type: GraphQLInt },
-        month: { type: GraphQLInt },
-        date: { type: GraphQLInt },
+        year: {
+            type: new GraphQLNonNull(GraphQLInt),
+            defaultValue: currentDate.getFullYear,
+        },
+        month: {
+            type: new GraphQLNonNull(GraphQLInt),
+            defaultValue: currentDate.getMonth,
+        },
+        date: {
+            type: new GraphQLNonNull(GraphQLInt),
+            defaultValue: currentDate.getDate,
+        },
     }),
 });
 const TaskInputListType = new GraphQLInputObjectType({
     name: "TaskInputList",
     fields: () => ({
-        id: { type: GraphQLID },
-        name: { type: GraphQLString },
-        progress: { type: GraphQLInt },
-        hideChildren: { type: GraphQLBoolean },
-        type: { type: GraphQLString },
-        start: { type: DateInputType },
-        end: { type: DateInputType },
+        id: {
+            type: new GraphQLNonNull(GraphQLID),
+            defaultValue: (source, args, context, info) => {return `${source.project} ${source.name}`},
+        },
+        name: {
+            type: new GraphQLNonNull(GraphQLString),
+        },
+        progress: { type: new GraphQLNonNull(GraphQLInt) },
+        hideChildren: { type: GraphQLBoolean, defaultValue: true },
+        type: { type: GraphQLString, defaultValue: "task" },
+        start: { type: new GraphQLNonNull(DateInputType) },
+        end: { type: new GraphQLNonNull(DateInputType) },
+        dependencies: { type: new GraphQLList(GraphQLString) },
+        project: { type: GraphQLString },
+        isDisabled: { type: GraphQLBoolean, defaultValue: true },
     }),
 });
 const TaskInputType = new GraphQLInputObjectType({
@@ -52,6 +69,7 @@ const TaskInputType = new GraphQLInputObjectType({
     }),
 });
 
+// Timeline Display type
 const DateType = new GraphQLObjectType({
     name: "Date",
     fields: () => ({
@@ -71,16 +89,17 @@ const TaskListType = new GraphQLObjectType({
         type: { type: GraphQLString },
         start: { type: DateType },
         end: { type: DateType },
+        dependencies: { type: new GraphQLList(GraphQLString) },
+        project: { type: GraphQLString },
+        isDisabled: { type: GraphQLBoolean },
     }),
 });
-const TaskType = new GraphQLObjectType({
-    name: "TaskType",
+const Task = new GraphQLObjectType({
+    name: "Task",
     fields: () => ({
         tasks: { type: new GraphQLList(TaskListType) },
     }),
 });
-
-// Timeline
 
 const ProjectType = new GraphQLObjectType({
     name: "Project",
@@ -96,7 +115,7 @@ const ProjectType = new GraphQLObjectType({
             },
         },
         timeline: {
-            type: TaskType,
+            type: Task,
         },
     }),
 });

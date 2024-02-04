@@ -16,6 +16,7 @@ const ProjectSchema = mongoose.Schema({
     },
     timeline: {
         type: Object,
+        ref:'Task',
     },
 });
 
