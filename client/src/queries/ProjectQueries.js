@@ -25,6 +25,15 @@ const GET_PROJECT = gql`
                 phone
                 email
             }
+            # timeline{
+            #     id
+            #     name
+            #     progress
+            #     hideChildren
+            #     type
+            #     start
+            #     end
+            # }
         }
     }
 `;

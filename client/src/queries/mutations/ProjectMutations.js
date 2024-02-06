@@ -11,17 +11,30 @@ const REMOVE_PROJECT = gql`
 `;
 
 const ADD_PROJECT = gql`
-    mutation addProject($name: String!, $status: String!, $clientId: ID!, $description:String!) {
-        addProject(name: $name, status: $status, clientId: $clientId, description: $description) {
+    mutation addProject(
+        $name: String!
+        $status: String!
+        $clientId: ID!
+        $description: String!
+        $timeline: TaskInput!
+    ) {
+        addProject(
+            name: $name
+            status: $status
+            clientId: $clientId
+            description: $description
+            timeline: $timeline
+        ) {
             id
             name
             status
-            client{
+            client {
                 id
                 name
                 phone
                 email
             }
+            
         }
     }
 `;
