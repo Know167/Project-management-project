@@ -2,10 +2,10 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
-
 import { GET_CLIENTS } from "../queries/ClientQueries";
 import { GET_PROJECTS } from "../queries/ProjectQueries";
 import { ADD_PROJECT } from "../queries/mutations/ProjectMutations";
+import tasks from "./assets/ExampleTimeline";
 
 const AddProjectModal = () => {
     const [name, setName] = useState("");
@@ -22,6 +22,7 @@ const AddProjectModal = () => {
             description: description,
             status: status,
             clientId: clientId,
+            timeline: tasks,
         },
         update(cache, { data: { addProject } }) {
             const { projects } = cache.readQuery({ query: GET_PROJECTS });
@@ -75,7 +76,7 @@ const AddProjectModal = () => {
                         style={{ backgroundColor: "#E3E1DA" }}
                         data-bs-toggle="modal"
                         data-bs-target="#addProjectModal">
-                        <FaPlus/> Add Project
+                        <FaPlus /> Add Project
                     </div>
                     <form className="">
                         <div
