@@ -25,17 +25,36 @@ const GET_PROJECT = gql`
                 phone
                 email
             }
-            # timeline{
-            #     id
-            #     name
-            #     progress
-            #     hideChildren
-            #     type
-            #     start
-            #     end
-            # }
         }
     }
 `;
 
-export { GET_PROJECTS, GET_PROJECT };
+const GET_TIMELINE = gql`
+    query getProject($id: ID!) {
+        project(id: $id) {
+            id
+            name
+            timeline {
+                tasks {
+                    id
+                    name
+                    progress
+                    hideChildren
+                    type
+                    start {
+                        year
+                        month
+                        date
+                    }
+                    end {
+                        year
+                        month
+                        date
+                    }
+                }
+            }
+        }
+    }
+`;
+
+export { GET_PROJECTS, GET_PROJECT, GET_TIMELINE };

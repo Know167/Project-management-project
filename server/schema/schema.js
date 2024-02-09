@@ -47,7 +47,9 @@ const TaskInputListType = new GraphQLInputObjectType({
     fields: () => ({
         id: {
             type: new GraphQLNonNull(GraphQLID),
-            defaultValue: (source, args, context, info) => {return `${source.project} ${source.name}`},
+            defaultValue: (source, args, context, info) => {
+                return `${source.project} ${source.name}`;
+            },
         },
         name: {
             type: new GraphQLNonNull(GraphQLString),
