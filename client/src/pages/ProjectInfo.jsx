@@ -38,7 +38,7 @@ const ProjectInfo = () => {
                 <div className="container mt-4">
                     <button
                         className="btn btn-blue"
-                        onClick={() => navigate("/projects")}>
+                        onClick={() => navigate(-1)}>
                         <AiOutlineArrowLeft className="me-2" /> Go to Projects
                     </button>
                     <div
@@ -56,8 +56,9 @@ const ProjectInfo = () => {
                                         color: "white",
                                         border: "2px solid gray",
                                     }}
-                                    onClick={() => navigate(`/projects/${id}/timeline`)}
-                                >
+                                    onClick={() =>
+                                        navigate(`/projects/${id}/timeline`)
+                                    }>
                                     View Timeline
                                 </button>
                             </div>

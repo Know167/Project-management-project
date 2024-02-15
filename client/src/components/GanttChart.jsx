@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { Gantt, ViewMode } from "gantt-task-react";
 import "gantt-task-react/dist/index.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { GET_TIMELINE } from "../queries/ProjectQueries";
 
@@ -26,10 +26,15 @@ const GanttChart = () => {
             };
         });
     }
+
+    const navigate = useNavigate();
     return (
         <>
             {!loading && !error && tasklist && (
-                <Gantt tasks={tasklist} viewMode={ViewMode.Day} />
+                <>
+                    <button onClick={() => navigate(-1)}>Back</button>
+                    <Gantt tasks={tasklist} viewMode={ViewMode.Day} />
+                </>
             )}
         </>
     );

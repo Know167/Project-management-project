@@ -1,5 +1,6 @@
 import "./App.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Clients from "./pages/Clients";
@@ -62,6 +63,7 @@ const client = new ApolloClient({
 function App() {
     return (
         <>
+            <Analytics />
             <ApolloProvider client={client}>
                 <div>
                     <Header />
