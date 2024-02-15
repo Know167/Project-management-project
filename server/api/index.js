@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 
 connectDB();
-
+app.get("/", (req, res) => res.status(200).json({message:'Hello World'}));
 app.use(
     "/graphql",
     graphqlHTTP({
