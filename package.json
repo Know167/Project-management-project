@@ -10,7 +10,6 @@
   "author": "know167",
   "license": "ISC",
   "dependencies": {
-    "@vercel/analytics": "^1.1.3",
     "chart.js": "^4.4.1",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
