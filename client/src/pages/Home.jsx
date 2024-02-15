@@ -5,7 +5,7 @@ const Home = () => {
         <div className="container mt-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3 text-center">
-                    <h1>Welcome to Your Project Management App</h1>
+                    <h1>Welcome to your personal project manager</h1>
                     <p className="lead">
                         Manage your projects efficiently and stay organized with
                         our app.

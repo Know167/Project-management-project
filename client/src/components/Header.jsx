@@ -13,7 +13,7 @@ const Header = () => {
                   width={"60px"}
                   height={"60px"}
               />
-              <span className="fs-3 fw-medium ms-4">Project Manager</span>
+              <span className="fs-3 fw-medium ms-4">Verity Manage</span>
           </a>
 
           <ul className="nav nav-pills">
