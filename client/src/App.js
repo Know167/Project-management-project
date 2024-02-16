@@ -56,7 +56,7 @@ const cache = new InMemoryCache({
 });
 
 const client = new ApolloClient({
-    uri: process.env.APOLLO_URI,
+    uri: "https://verity-manage-backend.vercel.app/graphql",
     cache,
 });
 
