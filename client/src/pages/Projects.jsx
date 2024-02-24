@@ -13,7 +13,6 @@ const Projects = () => {
     }
     return (
         <>
-            {" "}
             <AddProjectModal />
             {!loading && !error && (
                 <div className="row row-cols-1 row-cols-md-1">
