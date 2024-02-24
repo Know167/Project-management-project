@@ -71,12 +71,13 @@ const AddProjectModal = () => {
         <>
             {!loading && !error && (
                 <>
-                    <div
-                        className="btn border border-3 border-dark mb-2 fw-medium text-tertiary shadow"
-                        style={{ backgroundColor: "#E3E1DA" }}
-                        data-bs-toggle="modal"
-                        data-bs-target="#addProjectModal">
-                        <FaPlus /> Add Project
+                    <div className="d-flex justify-content-end">
+                        <div
+                            className="btn btn-lg btn-success border border-3 border-dark mb-2 fw-medium text-tertiary shadow mt-1 "
+                            data-bs-toggle="modal"
+                            data-bs-target="#addProjectModal">
+                            <FaPlus /> Add Project
+                        </div>
                     </div>
                     <form className="">
                         <div
