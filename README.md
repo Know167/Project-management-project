@@ -1,6 +1,6 @@
-VerityManage : [A Project Manager App]🌐
+# VerityManage : [A Project Manager App]🌐
 
-🛠️ Tech Stack:
+## 🛠️ Tech Stack:
 
 Frontend: Crafted with React for a dynamic and responsive user interface.
 
@@ -11,7 +11,7 @@ Database: Leverages the flexibility and scalability of MongoDB for seamless data
 API: Utilizes GraphQL for efficient and tailored communication with the database.
 
 
-✨ Key Features:
+## ✨ Key Features:
 
 Intuitive Task Management: React frontend provides a smooth user experience.
 
@@ -24,7 +24,7 @@ Scalable Database: MongoDB ensures a scalable and adaptable database solution.
 Working on it for a month now and looks good for a basic app. But, still not satisfied.
 
 
-Upcoming features:
+### Upcoming features:
 
 - Editing Gantt-chart
   
