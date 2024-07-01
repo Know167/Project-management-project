@@ -27,7 +27,7 @@ code {
 
 .btn-primary,
 .bg-primary {
-  background-color:#F6F7EB !important;
+  background-color:#5919ff !important;
   border: none;
 }
 
@@ -40,11 +40,11 @@ code {
 }
 
 .btn-secondary {  
-  background-color: #fffb00;
+  background-color: #f65252;
 }
 
 .btn-secondary:hover {
-  background-color: #FFFC31;
+  background-color: #de2929;
   opacity: 0.9;
 }
 .btn-blue{

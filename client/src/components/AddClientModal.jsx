@@ -140,13 +140,13 @@ const AddClientModal = () => {
                                 <div className="modal-footer">
                                     <button
                                         type="button"
-                                        className="btn btn-"
+                                        className="btn"
                                         data-bs-dismiss="modal">
                                         Close
                                     </button>
                                     <button
                                         type="submit"
-                                        className="btn btn-blue"
+                                        className="btn"
                                         data-bs-dismiss="modal"
                                         onClick={onSubmit}>
                                         Submit

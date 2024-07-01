@@ -81,11 +81,13 @@ const EditProject = ({ data, onCancel }) => {
                                 description
                             );
                             onCancel();
-                        }}>
+                        }}
+                    style={{width:'7rem'}}
+                    >
                         Update
                     </button>
 
-                    <button className="btn btn-secondary" onClick={onCancel}>
+                    <button className="btn btn-secondary" style={{width:'7rem'}} onClick={onCancel}>
                         <AiOutlineArrowLeft className="me-2" /> Cancel
                     </button>
                 </div>
