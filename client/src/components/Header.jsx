@@ -16,7 +16,7 @@ const Header = () => {
         {
             label: "Clients",
             key: "clients",
-            icon: <PersonIcon/>,
+            icon: <PersonIcon color="dark" />,
         },
         {
             label: "Projects",
