@@ -49,11 +49,28 @@ const AddClientModal = () => {
             <>
                 <button
                     type="button"
-                    className="btn border border-3 border-dark mb-2 fw-medium text-tertiary shadow"
-                    style={{ backgroundColor: "#E3E1DA" }}
+                    className="rounded-circle fw-medium text-tertiary shadow"
+                    style={{
+                        zIndex: 100,
+                        position: "absolute",
+                        bottom: "0px",
+                        right: "0px",
+                        height: "60px",
+                        width: "60px",
+                        backgroundColor: "#5de4ff",
+                        border: "2px solid silver",
+                    }}
                     data-bs-toggle="modal"
                     data-bs-target="#addClientModal">
-                    <FaPlus /> Add Client
+                    <FaPlus
+                        style={{
+                            height: "2rem",
+                            width: "2rem",
+                            marginTop: ".37rem",
+                            marginLeft: "0rem",
+                            color: "white",
+                        }}
+                    />
                 </button>
                 <form>
                     <div

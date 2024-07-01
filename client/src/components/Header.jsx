@@ -5,8 +5,6 @@ import { Menu } from "antd";
 import PersonIcon from "@mui/icons-material/Person";
 import {
     AppstoreOutlined,
-    MailOutlined,
-    SettingOutlined,
 } from "@ant-design/icons";
 
 const Header = () => {
@@ -16,12 +14,24 @@ const Header = () => {
         {
             label: "Clients",
             key: "clients",
-            icon: <PersonIcon color="dark" />,
+            icon: (
+                <PersonIcon
+                    color="dark"
+                    style={{
+                        height: "1.5rem",
+                        width: "1.5rem",
+                        verticalAlign: "-.5rem",
+                    }}
+                />
+            ),
         },
         {
             label: "Projects",
             key: "projects",
-            icon: <AppstoreOutlined />,
+            icon: (
+                <AppstoreOutlined 
+                />
+            ),
         },
     ];
     const [current, setCurrent] = useState("");
@@ -32,7 +42,7 @@ const Header = () => {
     };
     return (
         <>
-            <div className="justify-content-center mb-3 border-bottom">
+            <div className="justify-content-center border-bottom">
                 <a
                     href="/"
                     className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
@@ -43,13 +53,14 @@ const Header = () => {
                         width={"60px"}
                         height={"60px"}
                     />
-                    <span className="fs-3 fw-medium ms-4">Verity Manage</span>
+                    <span className="fs-2 fw-medium ms-4">Verity Manage</span>
                 </a>
                 <Menu
                     onClick={onClick}
                     selectedKeys={[current]}
                     mode="horizontal"
                     items={items}
+                    style={{fontSize:'large'}}
                 />
 
                 {/* <ul className="nav nav-pills">

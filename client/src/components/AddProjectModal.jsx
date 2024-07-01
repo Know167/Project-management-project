@@ -73,10 +73,28 @@ const AddProjectModal = () => {
                 <>
                     <div className="d-flex justify-content-end">
                         <div
-                            className="btn btn-lg btn-success border border-3 border-dark mb-2 fw-medium text-tertiary shadow mt-1 "
+                            className="btn btn-light rounded-circle fw-medium text-tertiary shadow"
                             data-bs-toggle="modal"
-                            data-bs-target="#addProjectModal">
-                            <FaPlus /> Add Project
+                            data-bs-target="#addProjectModal"
+                            style={{
+                                zIndex: 100,
+                                position: "absolute",
+                                bottom: "0px",
+                                right: "0px",
+                                height: "60px",
+                                width: "60px",
+                                backgroundColor: "#5de4ff",
+                                border: "2px solid silver",
+                            }}>
+                            <FaPlus
+                                style={{
+                                    height: "2rem",
+                                    width: "2rem",
+                                    marginTop: ".37rem",
+                                    marginLeft: "0rem",
+                                    color: "white",
+                                }}
+                            />
                         </div>
                     </div>
                     <form className="">

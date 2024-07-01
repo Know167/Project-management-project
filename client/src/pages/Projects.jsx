@@ -22,9 +22,9 @@ const Projects = () => {
                                 className="card d-flex flex-row shadow-sm m-1"
                                 key={project.id}>
                                 <div className="card-body">
-                                    <h5 className="card-title fw-bold text-info-emphasis">
+                                    <a className="card-title fw-bold fs-4 text-info-emphasis text-decoration-none" href={`/projects/${project.id}`}>
                                         {project.name}
-                                    </h5>
+                                    </a>
                                     <div className="text-secondary">
                                         status:
                                         <strong className="mx-1">
@@ -38,12 +38,12 @@ const Projects = () => {
                                         </i>
                                     </div>
                                 </div>
-                                <a
+                                {/* <a
                                     className="btn btn-lg text-primary-emphasis my-auto border border-2 border-tertiary shadow-sm"
                                     style={{ backgroundColor: "#c9ffff" }}
                                     href={`/projects/${project.id}`}>
                                     View
-                                </a>
+                                </a> */}
                             </div>
                         );
                     })}
