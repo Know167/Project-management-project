@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="client\public\favicon.ico" alt="verityManage logo" width="150px">
+    <img src="client\public\android-chrome-192x192.png" alt="verityManage logo" width="150px">
 </br><h2>VerityManage : [A Project Manager App]🌐</h2>
 </div>
 
