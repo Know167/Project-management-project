@@ -1,3 +1,6 @@
+<div align="center">
+    <img src="client\public\favicon.ico" alt="verityManage logo" width="150px">
+</div>
 # VerityManage : [A Project Manager App]🌐
 
 ## 🛠️ Tech Stack:
