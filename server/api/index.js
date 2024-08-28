@@ -9,7 +9,12 @@ const connectDB = require("../config/db");
 const port = process.env.PORT || 5000;
 const app = express();
 
-app.use(cors());
+app.use(
+    cors({
+        origin: "https://verity-manage.vercel.app/",
+        methods:'GET,POST,PUT,DELETE'
+    })
+);
 
 connectDB();
 app.get("/", (req, res) => res.status(200).json({message:'Hello World'}));
