@@ -36,3 +36,6 @@ Working on it for a month now and looks good for a basic app. But, still not sat
 - Authentication
   
 - Assign Team members to projects
+
+### Credits:
+backgroundImg: Photo by Johannes Plenio: https://www.pexels.com/photo/gray-and-white-wallpaper-1103970/

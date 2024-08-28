@@ -14,6 +14,7 @@ const Header = () => {
         {
             label: "Clients",
             key: "clients",
+            style: { border: "2px solid white" },
             icon: (
                 <PersonIcon
                     color="dark"
@@ -28,15 +29,13 @@ const Header = () => {
         {
             label: "Projects",
             key: "projects",
-            icon: (
-                <AppstoreOutlined 
-                />
-            ),
+            style: { border: "2px solid white"},
+            icon: <AppstoreOutlined />,
         },
     ];
     const [current, setCurrent] = useState("");
     const onClick = (e) => {
-        console.log(e.key);
+        // console.log(e.key);
         navigate(`/${e.key}`);
         setCurrent(e.key);
     };
@@ -60,7 +59,11 @@ const Header = () => {
                     selectedKeys={[current]}
                     mode="horizontal"
                     items={items}
-                    style={{fontSize:'large'}}
+                    style={{
+                        fontSize: "large",
+                        background: "rgba(0,255,0,.2)",
+                        border:"2px solid white"
+                    }}
                 />
 
                 {/* <ul className="nav nav-pills">

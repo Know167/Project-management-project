@@ -15,11 +15,11 @@ const Projects = () => {
         <>
             <AddProjectModal />
             {!loading && !error && (
-                <div className="row row-cols-1 row-cols-md-1">
+                <div className="row row-cols-1 row-cols-md-1" style={{background:"rgba(255,255,255,.7)"}}>
                     {data.projects.map((project) => {
                         return (
                             <div
-                                className="card d-flex flex-row shadow-sm m-1"
+                                className="card d-flex flex-row shadow-sm m-1" style={{background:"rgba(255,255,255,.7)"}}
                                 key={project.id}>
                                 <div className="card-body">
                                     <a className="card-title fw-bold fs-4 text-info-emphasis text-decoration-none" href={`/projects/${project.id}`}>
