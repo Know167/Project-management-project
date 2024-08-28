@@ -11,8 +11,8 @@ const app = express();
 
 app.use(
     cors({
-        origin: "https://verity-manage.vercel.app/",
-        methods:'GET,POST,PUT,DELETE'
+        origin: ["https://verity-manage.vercel.app/"],
+        methods: ["GET", "POST", "PUT", "DELETE","OPTIONS"],
     })
 );
 
