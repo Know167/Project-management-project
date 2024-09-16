@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
-        <div className="container mt-5 " style={{background:"transparent", height:"100vh"}}>
+        <div className="container mt-5 " style={{background:"transparent"}}>
             <div className="row">
                 <div className="col-md-6 offset-md-3 text-center">
                     <h1>Welcome to your personal project manager</h1>

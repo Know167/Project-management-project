@@ -15,35 +15,41 @@ const Projects = () => {
         <>
             <AddProjectModal />
             {!loading && !error && (
-                <div className="row row-cols-1 row-cols-md-1" style={{background:"rgba(255,255,255,.7)"}}>
+                <div
+                    className="container row row-cols-1 row-cols-md-1"
+                    style={{
+                        background: "rgba(255,255,255,.7)",
+                        maxWidth: "100%",
+                        // padding: "0px",
+                        margin:'0px'
+                    }}>
                     {data.projects.map((project) => {
                         return (
                             <div
-                                className="card d-flex flex-row shadow-sm m-1" style={{background:"rgba(255,255,255,.7)"}}
+                                className="container shadow-sm ps-5 py-2"
+                                style={{
+                                    background: "rgba(255,255,255,.7)",
+                                    maxWidth:'100%'
+                                }}
                                 key={project.id}>
-                                <div className="card-body">
-                                    <a className="card-title fw-bold fs-4 text-info-emphasis text-decoration-none" href={`/projects/${project.id}`}>
-                                        {project.name}
-                                    </a>
-                                    <div className="text-secondary">
-                                        status:
-                                        <strong className="mx-1">
-                                            {project.status}
-                                        </strong>
-                                    </div>
-                                    <div className="text-success mt-2">
-                                        by
-                                        <i className="mx-1 fw-semibold">
-                                            {project.client.name}
-                                        </i>
-                                    </div>
-                                </div>
-                                {/* <a
-                                    className="btn btn-lg text-primary-emphasis my-auto border border-2 border-tertiary shadow-sm"
-                                    style={{ backgroundColor: "#c9ffff" }}
+                                <a
+                                    className="fw-bold fs-4 text-info-emphasis text-decoration-none"
                                     href={`/projects/${project.id}`}>
-                                    View
-                                </a> */}
+                                    {project.name}
+                                </a>
+                                <div className="text-secondary">
+                                    status:
+                                    <strong className="ms-1">
+                                        {project.status}
+                                    </strong>
+                                </div>
+
+                                <div className="text-success mt-2">
+                                    by
+                                    <i className="ms-1 fw-semibold">
+                                        {project.client.name}
+                                    </i>
+                                </div>
                             </div>
                         );
                     })}

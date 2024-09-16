@@ -69,7 +69,7 @@ const client = new ApolloClient({
 
 function App() {
     return (
-        <div style={{ backgroundImage: "url('background.jpg')", backgroundPosition:"center" }}>
+        <div style={{ backgroundImage: "url('background.jpg')", backgroundPosition:"cover", height:'100vh' }}>
             <Analytics />
             <ApolloProvider client={client}>
                 <RouterProvider router={router} />
